@@ -1,0 +1,4 @@
+[@main]
+#if
+#act
+mapmove mh4 62 16

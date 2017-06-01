@@ -1,0 +1,102 @@
+[@GM管理]
+
+{
+
+#act
+MOV S0
+MOV S3
+
+
+#say
+　　　　GM后台管理系统 \ \
+<{称号管理=FCO=240}/@称号管理>　　<{地图开放管理=FCO=240}/@地图管理> \
+
+[@地图管理]
+#if
+LARGE G101 5
+#act
+MOV S0 <{关闭火龙地图=FCO=218}/@火龙>　(已开启)\
+#ELSEACT
+MOV S0 <{开启火龙地图=FCO=228}/@火龙1>　(已关闭)\
+
+#IF
+#SAY
+　　　　地图开放管理 \ \
+<$STR(S0)>
+
+[@火龙]
+#ACT
+MOV G101 1
+MESSAGEBOX  尊敬的GM:#7火龙地图#7【已关闭】
+GOTO @地图管理
+
+
+[@火龙1]
+#ACT
+MOV G101 10
+MESSAGEBOX  尊敬的GM:#7火龙地图#7【已开放】
+GOTO @地图管理
+
+
+[@称号管理]
+　　　　称号管理系统 \ \
+\ \
+{点击并输入需要添加的名字即可=FCO=240}\
+\ \
+<&{游戏管理=FCO=240}/@@InPutString10> \
+<&{玛法首富=FCO=242}/@@InPutString11> \
+<&{富可敌国=FCO=242}/@@InPutString12> \
+<&{腰缠万贯=FCO=242}/@@InPutString13> \
+<&{财大气粗=FCO=242}/@@InPutString14> \ \
+<&关　闭/@exit>
+
+[@@InPutString10]
+#IF
+CHECKTEXTLIST <$STR(S10)> ../QuestDiary/称号管理/游戏管理.txt
+#ACT
+MESSAGEBOX 您输入的名字已经在名单内了.(如执意加入请手动加入到文本内)
+#ELSEACT
+ADDTEXTLIST <$STR(S10)>  ../QuestDiary/称号管理/游戏管理.txt
+MESSAGEBOX  【<$STR(S10)>】加入游戏管理成功.并获得相应称号
+
+[@@InPutString11]
+#IF
+CHECKTEXTLIST <$STR(S11)> ../QuestDiary/称号管理/玛法首富.txt
+#ACT
+MESSAGEBOX 您输入的名字已经在名单内了.(如执意加入请手动加入到文本内)
+#ELSEACT
+ADDTEXTLIST <$STR(S11)>  ../QuestDiary/称号管理/玛法首富.txt
+MESSAGEBOX  【<$STR(S11)>】加入玛法首富成功.并获得相应称号
+
+[@@InPutString12]
+#IF
+CHECKTEXTLIST <$STR(S12)> ../QuestDiary/称号管理/富可敌国.txt
+#ACT
+MESSAGEBOX 您输入的名字已经在名单内了.(如执意加入请手动加入到文本内)
+#ELSEACT
+ADDTEXTLIST <$STR(S12)>  ../QuestDiary/称号管理/富可敌国.txt
+MESSAGEBOX  【<$STR(S12)>】加入富可敌国成功.并获得相应称号
+
+
+[@@InPutString13]
+#IF
+CHECKTEXTLIST <$STR(S13)> ../QuestDiary/称号管理/腰缠万贯.txt
+#ACT
+MESSAGEBOX 您输入的名字已经在名单内了.(如执意加入请手动加入到文本内)
+#ELSEACT
+ADDTEXTLIST <$STR(S13)>  ../QuestDiary/称号管理/腰缠万贯.txt
+MESSAGEBOX  【<$STR(S13)>】加入腰缠万贯成功.并获得相应称号
+
+
+[@@InPutString14]
+#IF
+CHECKTEXTLIST <$STR(S14)> ../QuestDiary/称号管理/财大气粗.txt
+#ACT
+MESSAGEBOX 您输入的名字已经在名单内了.(如执意加入请手动加入到文本内)
+#ELSEACT
+ADDTEXTLIST <$STR(S14)>  ../QuestDiary/称号管理/财大气粗.txt
+MESSAGEBOX  【<$STR(S14)>】加入财大气粗成功.并获得相应称号
+
+
+
+}

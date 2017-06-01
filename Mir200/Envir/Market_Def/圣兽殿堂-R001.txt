@@ -1,0 +1,60 @@
+[@main]
+恩，不错都能够闯进桃源之门。\
+告诉你，我在这里负责守护一处圣地，当然圣地不是一般人可以进\
+的，需要具备以下条件：\
+------------------------------------------------------------------\
+<战士：攻击80点>   <魔法师：法术50点>   <道士：道术60点>\ \
+<我达到条件进去闯一闯/@进入>\
+<算了我的性命要紧/@exit>\
+
+[@进入]
+#IF
+CheckJob Warrior
+#ACT
+goto @检查战士
+#ELSEact
+goto @进入1
+[@进入1]
+#IF
+CheckJob Wizard
+#ACT
+goto @检查法师
+#ELSEact
+goto @进入2
+[@进入2]
+#IF
+CheckJob Taoist
+#ACT
+goto @检查道士
+
+
+[@检查战士]
+#if
+CheckDC > 10 > 80
+#act
+goto @执行传送
+#ELSEact
+Messagebox  对不起，你的攻击不足80点。
+
+
+[@检查法师]
+#if
+CheckMC > 10 > 50
+#act
+goto @执行传送
+#ELSEact
+Messagebox  对不起，你的魔法不足50点。
+
+[@检查道士]
+#if
+CheckSC > 10 > 60
+#act
+goto @执行传送
+#ELSEact
+Messagebox  对不起，你的道术不足60点。
+
+[@执行传送]
+#IF
+#act
+mapmove  ssdt 50 50
+SendMsg 0 [公告]：游戏玩家#7<$USERNAME>#7闯入了圣兽殿堂.....祝他好运.....

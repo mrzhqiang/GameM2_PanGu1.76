@@ -1,0 +1,598 @@
+[@装备回收标准配置]
+{
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+沃玛套装价格是5W金币，祖玛套装价格是50W金币，赤月套装价格是\
+100W金币,光芒烈焰雷霆回收 回收200万一个！\
+<&金币回收{武器是双倍=FCO=250}{（沃玛套装）=FCO=251}/@回收_130>\
+<&金币回收{武器是双倍=FCO=250}{（祖玛套装）=FCO=251}/@回收_140>\
+<&金币回收{武器是双倍=FCO=250}{（赤月套装）=FCO=251}/@回收_150>\
+<&金币回收{武器是双倍=FCO=250}{（光芒烈焰雷霆套装）=FCO=251}/@回收45>\
+#ACT
+MOV M0 0
+Break
+
+[@回收45]
+#if
+#say
+\ \ \ \ \ \
+　--------------------------------\
+　　{系统正在检测您的背包,请稍等..=FCO=250}\
+　--------------------------------\
+#ACT
+DelayGoto 1 @战神回收提示
+#if
+checkitem 开天 1
+#ACT
+take 开天 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6开天#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 玄天 1
+#ACT
+take 玄天 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6玄天#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 镇天 1
+#ACT
+take 镇天 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6镇天#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 雷霆战甲(男) 1
+#ACT
+take 雷霆战甲(男) 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆战甲(男)#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 雷霆战甲(女) 1
+#ACT
+take 雷霆战甲(女) 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆战甲(女)#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 烈焰魔衣(男) 1
+#ACT
+take 烈焰魔衣(男) 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰魔衣(男)#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 烈焰魔衣(女) 1
+#ACT
+take 烈焰魔衣(女) 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰魔衣(女)#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 光芒道袍(男) 1
+#ACT
+take 光芒道袍(男) 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒道袍(男)#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 光芒道袍(女) 1
+#ACT
+take 光芒道袍(女) 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒道袍(女)#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 凤天魔甲 1
+#ACT
+take 凤天魔甲 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6凤天魔甲#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 凤天魔衣 1
+#ACT
+take 凤天魔衣 1
+give 金币  4000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6凤天魔衣#5系列获得金币400W
+GOTO @回收45
+break
+#if
+checkitem 雷霆头盔 1
+#ACT
+take 雷霆头盔 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆头盔#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 雷霆项链 1
+#ACT
+take 雷霆项链 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆项链#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 雷霆护腕 1
+#ACT
+take 雷霆护腕 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆护腕#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 雷霆腰带 1
+#ACT
+take 雷霆腰带 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆腰带#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 雷霆战戒 1
+#ACT
+take 雷霆战戒 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆战戒#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 雷霆战靴 1
+#ACT
+take 雷霆战靴 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6雷霆战靴#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 烈焰头盔 1
+#ACT
+take 烈焰头盔 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰头盔#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 烈焰项链 1
+#ACT
+take 烈焰项链 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰项链#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 烈焰护腕 1
+#ACT
+take 烈焰护腕 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰护腕#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 烈焰腰带 1
+#ACT
+take 烈焰腰带 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰腰带#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 烈焰魔戒 1
+#ACT
+take 烈焰魔戒 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰魔戒#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 烈焰魔靴 1
+#ACT
+take 烈焰魔靴 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6烈焰魔靴#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 光芒头盔 1
+#ACT
+take 光芒头盔 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒头盔#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 光芒项链 1
+#ACT
+take 光芒项链 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒项链#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 光芒护腕 1
+#ACT
+take 光芒护腕 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒护腕#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 光芒腰带 1
+#ACT
+take 光芒腰带 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒腰带#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 光芒道戒 1
+#ACT
+take 光芒道戒 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒道戒#5系列获得金币200W
+GOTO @回收45
+break
+#if
+checkitem 光芒道靴 1
+#ACT
+take 光芒道靴 1
+give 金币  2000000
+SENDMSG 7 [#6FFFF/8#6回收#5]:恭喜你一键回收了#6FFFF/8#6光芒道靴#5系列获得金币200W
+GOTO @回收45
+break
+;__________________________________________________________________________________
+
+[@回收_130]
+#IF
+#SAY
+\ \ \ \ \ \
+　--------------------------------\
+　　{系统正在检测您的背包,请稍等..=FCO=250}\
+　--------------------------------\
+#ACT
+DelayGoto 1 @主宰回收提示
+#IF
+CHECKITEM 幽灵项链 1
+#ACT
+TAKE 幽灵项链 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 幽灵手套 1
+#ACT
+TAKE 幽灵手套 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 龙之戒指 1
+#ACT
+TAKE 龙之戒指 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 生命项链 1
+#ACT
+TAKE 生命项链 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 思贝儿手镯 1
+#ACT
+TAKE 思贝儿手镯 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 红宝石戒指 1
+#ACT
+TAKE 红宝石戒指 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 天珠项链 1
+#ACT
+TAKE 天珠项链 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 心灵手镯 1
+#ACT
+TAKE 心灵手镯 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 铂金戒指 1
+#ACT
+TAKE 铂金戒指 1
+give 金币 50000
+INC M0 5
+#IF
+CHECKITEM 炼狱 1
+#ACT
+TAKE 炼狱 1
+give 金币 100000
+INC M0 5
+#IF
+CHECKITEM 魔杖 1
+#ACT
+TAKE 魔杖 1
+give 金币 100000
+INC M0 5
+#IF
+CHECKITEM 银蛇 1
+#ACT
+TAKE 银蛇 1
+give 金币 100000
+INC M0 5
+#IF
+CHECKITEM 井中月 1
+#ACT
+TAKE 井中月 1
+give 金币 150000
+INC M0 5
+#IF
+CHECKITEM 无极棍 1
+#ACT
+TAKE 无极棍 1
+give 金币 150000
+INC M0 5
+
+[@主宰回收提示]
+#IF
+LARGE M0 0
+#ACT
+SENDMSG 0 【#6FFFF/8#6回收#5】：[#7<$USERNAME>#7]出售#6FFFF/8#6沃玛装备#5赚取了金币
+Goto @系统_标准NPC头_返回
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+沃玛套装价格是5W金币，祖玛套装价格是50W金币，赤月套装价格是\
+100W金币,光芒烈焰雷霆回收 回收200万一个！\
+<&金币回收{武器是双倍=FCO=250}{（沃玛套装）=FCO=251}/@回收_130>\
+<&金币回收{武器是双倍=FCO=250}{（祖玛套装）=FCO=251}/@回收_140>\
+<&金币回收{武器是双倍=FCO=250}{（赤月套装）=FCO=251}/@回收_150>\
+<&金币回收{武器是双倍=FCO=250}{（光芒烈焰雷霆套装）=FCO=251}/@回收45>\
+
+[@战神回收提示]
+#IF
+LARGE M0 0
+#ACT
+SENDMSG 0 【#6FFFF/8#6回收#5】：[#7<$USERNAME>#7]出售#6FFFF/8#6战神装备#5赚取了金币
+Goto @系统_标准NPC头_返回
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+沃玛套装价格是5W金币，祖玛套装价格是50W金币，赤月套装价格是\
+100W金币,光芒烈焰雷霆回收 回收200万一个！\
+<&金币回收{武器是双倍=FCO=250}{（沃玛套装）=FCO=251}/@回收_130>\
+<&金币回收{武器是双倍=FCO=250}{（祖玛套装）=FCO=251}/@回收_140>\
+<&金币回收{武器是双倍=FCO=250}{（赤月套装）=FCO=251}/@回收_150>\
+<&金币回收{武器是双倍=FCO=250}{（光芒烈焰雷霆套装）=FCO=251}/@回收45>\
+;__________________________________________________________________________________
+
+[@回收_140]
+#IF
+#SAY
+\ \ \ \ \ \
+　--------------------------------\
+　　{系统正在检测您的背包,请稍等..=FCO=250}\
+　--------------------------------\
+#ACT
+DelayGoto 1 @传奇回收提示
+#IF
+CHECKITEM 裁决之杖 1
+#ACT
+TAKE 裁决之杖 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 骨玉权杖 1
+#ACT
+TAKE 骨玉权杖 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 龙纹剑 1
+#ACT
+TAKE 龙纹剑 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 黑铁头盔 1
+#ACT
+TAKE 黑铁头盔 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 绿色项链 1
+#ACT
+TAKE 绿色项链 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 恶魔铃铛 1
+#ACT
+TAKE 恶魔铃铛 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 灵魂项链 1
+#ACT
+TAKE 灵魂项链 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 骑士手镯 1
+#ACT
+TAKE 骑士手镯 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 阎罗手套 1
+#ACT
+TAKE 阎罗手套 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 龙之手镯 1
+#ACT
+TAKE 龙之手镯 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 三眼手镯 1
+#ACT
+TAKE 三眼手镯 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 力量戒指 1
+#ACT
+TAKE 力量戒指 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 紫碧螺 1
+#ACT
+TAKE 紫碧螺 1
+give 金币 500000
+INC M0 50
+#IF
+CHECKITEM 泰坦戒指 1
+#ACT
+TAKE 泰坦戒指 1
+give 金币 500000
+INC M0 50
+
+[@传奇回收提示]
+#IF
+LARGE M0 0
+#ACT
+SENDMSG 0 【#6FFFF/8#6回收#5】：[#7<$USERNAME>#7]出售#6FFFF/8#6祖玛装备#5赚取了金币
+Goto @系统_标准NPC头_返回
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+沃玛套装价格是5W金币，祖玛套装价格是50W金币，赤月套装价格是\
+100W金币,光芒烈焰雷霆回收 回收200万一个！\
+<&金币回收{武器是双倍=FCO=250}{（沃玛套装）=FCO=251}/@回收_130>\
+<&金币回收{武器是双倍=FCO=250}{（祖玛套装）=FCO=251}/@回收_140>\
+<&金币回收{武器是双倍=FCO=250}{（赤月套装）=FCO=251}/@回收_150>\
+<&金币回收{武器是双倍=FCO=250}{（光芒烈焰雷霆套装）=FCO=251}/@回收45>\
+
+
+;__________________________________________________________________________________
+
+[@回收_150]
+#IF
+#SAY
+\ \ \ \ \ \
+　--------------------------------\
+　　{系统正在检测您的背包,请稍等..=FCO=250}\
+　--------------------------------\
+#ACT
+DelayGoto 1 @玉兔回收提示
+#IF
+CHECKITEM 圣战头盔 1
+#ACT
+TAKE 圣战头盔 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 圣战项链 1
+#ACT
+TAKE 圣战项链 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 圣战手镯 1
+#ACT
+TAKE 圣战手镯 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 圣战戒指 1
+#ACT
+TAKE 圣战戒指 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 法神头盔 1
+#ACT
+TAKE 法神头盔 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 法神项链 1
+#ACT
+TAKE 法神项链 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 法神手镯 1
+#ACT
+TAKE 法神手镯 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 法神戒指 1
+#ACT
+TAKE 法神戒指 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 天尊头盔 1
+#ACT
+TAKE 天尊头盔 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 天尊项链 1
+#ACT
+TAKE 天尊项链 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 天尊手镯 1
+#ACT
+TAKE 天尊手镯 1
+give 金币 1000000
+INC M0 100
+#IF
+CHECKITEM 天尊戒指 1
+#ACT
+TAKE 天尊戒指 1
+give 金币 1000000
+INC M0 100
+[@玉兔回收提示]
+#IF
+LARGE M0 0
+#ACT
+SENDMSG 0 【#6FFFF/8#6回收#5】：[#7<$USERNAME>#7]出售#6FFFF/8#6赤月装备#5赚取了金币
+Goto @系统_标准NPC头_返回
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+沃玛套装价格是5W金币，祖玛套装价格是50W金币，赤月套装价格是\
+100W金币,光芒烈焰雷霆回收 回收200万一个！\
+<&金币回收{武器是双倍=FCO=250}{（沃玛套装）=FCO=251}/@回收_130>\
+<&金币回收{武器是双倍=FCO=250}{（祖玛套装）=FCO=251}/@回收_140>\
+<&金币回收{武器是双倍=FCO=250}{（赤月套装）=FCO=251}/@回收_150>\
+<&金币回收{武器是双倍=FCO=250}{（光芒烈焰雷霆套装）=FCO=251}/@回收45>\
+
+
+
+;__________________________________________________________________________________
+
+
+}

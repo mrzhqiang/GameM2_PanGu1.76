@@ -1,0 +1,17 @@
+[@main]
+这个世界充满了险恶。。\
+你来找我干什么，来送死？\
+我知道一个未知洞穴，但是进入生死自负，所需10W金币+35级\ \
+<决定，前往一探究竟/@进入> \ \
+<我是路过来看看的/@EXIT>
+
+[@进入]
+#IF
+CheckLevelEx > 34
+CheckGold 100000
+#ACT
+take 金币 100000
+mapmove wzdx 97 181
+SendMsg 0 [公告]：游戏玩家#7<$USERNAME>#7闯入了未知洞穴.....
+#ELSEact
+Messagebox  你的进入条件达到了？

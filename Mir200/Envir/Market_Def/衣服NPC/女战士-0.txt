@@ -1,0 +1,37 @@
+[@main]
+我这里可能通过下一层但你现在不能进去哦：\
+<我要去打衣服/@幻境之地>  
+
+[@幻境之地]
+#IF
+#ACT
+MOV P6 [$重装地图开放时间_年]
+MOV P0 [$重装地图开放时间_月]
+MOV P1 [$重装地图开放时间_日]
+MOV P2 [$重装地图开放时间_时]
+DEC P2 1
+MUL P6 10
+MUL P0 10000
+MUL P1 100
+INC P0 <$STR(P1)>
+INC P0 <$STR(P2)>
+INC P0 <$STR(P6)>
+MOV P3 <$MONTH>
+MOV P4 <$DAY>
+MOV P5 <$HOUR>
+MOV P7 <$YEAR>
+MUL P7 10
+MUL P3 10000
+MUL P4 100
+INC P3 <$STR(P4)>
+INC P3 <$STR(P5)>
+INC P3 <$STR(P7)>
+
+#IF
+LARGE P3 <$STR(P0)>
+#ACT
+MAPMOVE T339  18    26
+#ELSEACT
+MESSAGEBOX 在[$重装地图开放时间_年]年[$重装地图开放时间_月]月[$重装地图开放时间_日]日[$重装地图开放时间_时]之前不允许进入\现在时间：<$DATETIME>
+
+

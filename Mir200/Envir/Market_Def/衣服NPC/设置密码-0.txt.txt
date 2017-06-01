@@ -1,0 +1,45 @@
+(@HumGameGoldOrder @@InPutInteger, @@InPutString)
+%100
++10
++11
++15
+[@main]
+为防止玩家游戏账号被盗：请玩家进入游戏设置二级密码，防止被盗！!\
+为防止玩家游戏账号被盗：请玩家进入游戏设置二级密码，防止被盗\
+二级密码请不要与密码设一样：建议使用本人生日号码?\\
+二级密码请不要与密码设一样：建议使用本人生日号码?\\
+  设置<二级密码/@密码>\
+  <关闭/@exit>\
+
+[@密码]
+为了保障玩家的帐号安全,在帐号被盗或者被骗,\
+只要你设置了2级密码,IP不一致上线必须输入2级密码!\
+注意:有密码保护的人可以申请清除2级密码!\
+警请各位玩家不要泄露自己的帐号密码保护!避免不必要的损失!\
+<设置2级密码/@@InPutInteger4>--2级密码必须为4-7位全数字!否则无效!
+<返回/@main>
+
+[@@InPutInteger4]
+#IF
+checknamelist ..\QuestDiary\二级密码\密码名单.txt
+#ACT
+MessageBox 你已经设置了2级密码!请先删除初始密码!
+MOV M4 0
+BREAK
+
+#If
+#Act
+DelayGoto 1 ~InPutInteger4
+
+[~InPutInteger4]
+#If
+LARGE M4 0
+#ACT
+VAR Integer HUMAN 二级密码
+CALCVAR HUMAN  二级密码 = <$STR(M4)>
+SAVEVAR HUMAN 二级密码 ..\QuestDiary\二级密码\密码数据.txt
+addnamelist ..\QuestDiary\二级密码\密码名单.txt
+ADDLINELIST QuestDiary\二级密码\IP数据.txt <$USERNAME><$IPADDR>
+MessageBox 密码设置成功!\你设置的密码是:◆[<$STR(M4)>]◆\请牢记!
+#ELSEACT
+messagebox 密码设置失败!\确认你输入的数据为4-7位的数字!

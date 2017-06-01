@@ -1,0 +1,12 @@
+[@main]
+勇士只有把这层的怪物清理完了后才能进入下一次哦！\ \
+<&进入下一层/@进入>\
+<&结束对话/@exit>
+
+[@进入]
+#IF
+CheckMapMonCount dyzd2 < 1
+#ACT
+mapmove  dyzd3  52  39
+#elsesay
+怎么没有清理完里面的怪物？继续加油吧 <返回/@MAIN>

@@ -1,0 +1,872 @@
+(@s_repair )
+%100
++30
++25
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　你想做什么？\ 
+　<我想要拜师/@teacher>\
+　<查询声望点数/@talkwith>\
+　<解除师徒关系/@解除师徒关系>\
+　<随机领取荣誉勋章/@talkwith2>\
+　<指定领取荣誉勋章/@talkwith3>\
+　<修理勋章/@s_repair>\
+
+
+[@talkwith]
+#IF
+#ACT
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　<$USERNAME>您好！您现在的<声望点数>是：<$CREDITPOINT>\ \
+　<返　回/@main>\
+[@talkwith2]
+{<$SELFNAME>=FCO=251}：\
+　勋章是随机配的，请考虑清楚\ \
+　<领取一级荣誉勋章/@next01> 需要花费10点声望，佩戴需要5点声望\
+　<领取二级荣誉勋章/@next02> 需要花费20点声望，佩戴需要10点声望\
+　<领取三级荣誉勋章/@next03> 需要花费30点声望，佩戴需要15点声望\
+　<领取四级荣誉勋章/@next04> 需要花费40点声望，佩戴需要20点声望\ \
+　<返　回/@main>
+
+[@next01]
+#IF
+NOT checkcreditpoint ? 10
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+#ACT
+BREAK
+
+#IF
+random 5
+checkcreditpoint ? 10
+#ACT
+CREDITPOINT - 10
+give 荣誉勋章11号
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>\
+
+#IF
+random 4
+checkcreditpoint ? 10
+#ACT
+CREDITPOINT - 10
+give 荣誉勋章12号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>\
+
+#IF
+random 3
+checkcreditpoint ? 10
+#ACT
+CREDITPOINT - 10
+give 荣誉勋章13号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>\
+
+#IF
+random 2
+checkcreditpoint ? 10
+#ACT
+CREDITPOINT - 10
+give 荣誉勋章14号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>\
+
+#IF
+random 1
+checkcreditpoint ? 10
+#ACT
+CREDITPOINT - 10
+give 荣誉勋章15号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>\
+
+[@next02]
+#IF
+NOT checkcreditpoint ? 20
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+#ACT
+BREAK
+
+#IF
+random 5
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章21号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 4
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章22号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#IF
+random 3
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章23号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 2
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章24号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 1
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章25号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+[@next03]
+#IF
+NOT checkcreditpoint ? 30
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+#ACT
+BREAK
+
+#IF
+random 5
+checkcreditpoint ? 30
+#ACT
+CREDITPOINT - 30
+give 荣誉勋章31号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 4
+checkcreditpoint  ?　30
+#ACT
+CREDITPOINT - 30
+give 荣誉勋章32号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 3
+checkcreditpoint ? 30
+#ACT
+CREDITPOINT - 30
+give 荣誉勋章33号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 2
+checkcreditpoint ? 30
+#ACT
+CREDITPOINT - 30
+give 荣誉勋章34号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 1
+checkcreditpoint ? 30
+#ACT
+CREDITPOINT - 30
+give 荣誉勋章35号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+[@next04]
+#IF
+NOT checkcreditpoint ? 40
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+#IF
+random 5
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章41号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 4
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章42号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 3
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章43号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 2
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章44号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+#IF
+random 1
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章45号 1
+break
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+
+[@talkwith3]
+{<$SELFNAME>=FCO=251}：\
+　你可以指定所需要的勋章，但是会花费更多的声望值\ \
+　<领取一级荣誉勋章/@next10> 需要花费20点声望，佩戴需要5点声望\
+　<领取二级荣誉勋章/@next20> 需要花费40点声望，佩戴需要10点声望\
+　<领取三级荣誉勋章/@next30> 需要花费60点声望，佩戴需要15点声望\
+　<领取四级荣誉勋章/@next40> 需要花费80点声望，佩戴需要20点声望\ \
+　<返　回/@main>
+
+[@next10]
+{<$SELFNAME>=FCO=251}：\
+　<领取11号荣誉勋章/@next11>\
+　<领取12号荣誉勋章/@next12>\
+　<领取13号荣誉勋章/@next13>\
+　<领取14号荣誉勋章/@next14>\
+　<领取15号荣誉勋章/@next15>\
+　<返　回/@main>
+
+[@next20]
+{<$SELFNAME>=FCO=251}：\
+　<领取21号荣誉勋章/@next21>\
+　<领取22号荣誉勋章/@next22>\
+　<领取23号荣誉勋章/@next23>\
+　<领取24号荣誉勋章/@next24>\
+　<领取25号荣誉勋章/@next25>\
+　<返　回/@main>
+
+[@next30]
+{<$SELFNAME>=FCO=251}：\
+　<领取31号荣誉勋章/@next31>\
+　<领取32号荣誉勋章/@next32>\
+　<领取33号荣誉勋章/@next33>\
+　<领取34号荣誉勋章/@next34>\
+　<领取35号荣誉勋章/@next35>\
+　<返　回/@main>
+
+[@next40]
+{<$SELFNAME>=FCO=251}：\
+　<领取41号荣誉勋章/@next41>\
+　<领取42号荣誉勋章/@next42>\
+　<领取43号荣誉勋章/@next43>\
+　<领取44号荣誉勋章/@next44>\
+　<领取45号荣誉勋章/@next45>\
+　<返　回/@main>
+
+[@next11]
+#IF
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章11号
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next12]
+#IF
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章12号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next13]
+#IF
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章13号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next14]
+#IF
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章14号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next15]
+#IF
+checkcreditpoint ? 20
+#ACT
+CREDITPOINT - 20
+give 荣誉勋章15号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next21]
+#IF
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章21号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next22]
+#IF
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章22号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next23]
+#IF
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章23号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next24]
+#IF
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章24号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next25]
+#IF
+checkcreditpoint ? 40
+#ACT
+CREDITPOINT - 40
+give 荣誉勋章25号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next31]
+#IF
+checkcreditpoint ? 60
+#ACT
+CREDITPOINT - 60
+give 荣誉勋章31号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next32]
+#IF
+checkcreditpoint ? 60
+#ACT
+CREDITPOINT - 60
+give 荣誉勋章32号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next33]
+#IF
+checkcreditpoint ? 60
+#ACT
+CREDITPOINT - 60
+give 荣誉勋章33号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next34]
+#IF
+checkcreditpoint ? 60
+#ACT
+CREDITPOINT - 60
+give 荣誉勋章34号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next35]
+#IF
+checkcreditpoint ? 60
+#ACT
+CREDITPOINT - 60
+give 荣誉勋章35号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next41]
+#IF
+checkcreditpoint ? 80
+#ACT
+CREDITPOINT - 80
+give 荣誉勋章41号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next42]
+#IF
+checkcreditpoint ? 80
+#ACT
+CREDITPOINT - 80
+give 荣誉勋章42号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next43]
+#IF
+checkcreditpoint ? 80
+#ACT
+CREDITPOINT - 80
+give 荣誉勋章43号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+[@next44]
+#IF
+checkcreditpoint ? 80
+#ACT
+CREDITPOINT - 80
+give 荣誉勋章44号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@next45]
+#IF
+checkcreditpoint ? 80
+#ACT
+CREDITPOINT - 80
+give 荣誉勋章45号 1
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已获得了荣誉的象征！快走吧！\ \
+　<返　回/@main>
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　请检查领取荣誉勋章所需要的声望值！\ \
+　<返　回/@main>\
+
+[@s_repair]
+你可以在这里修理勋章！\ \ \
+ <返 回/@Main>
+
+[@teacher]
+{<$SELFNAME>=FCO=251}：\
+　你想做什么？\ \
+　<了解拜师系统相关知识/@ask>\
+　<我要拜师/@助理小敏_我想拜师>\
+　<离　开/@exit>
+
+[@ask]
+{<$SELFNAME>=FCO=251}：\
+　[$拜师等级]级以下的玩家可以拜[$师傅等级]级或以上的玩家为师。\
+　徒弟等级升高后师傅会得到[$出师师傅获得声望]点声望值，\
+　利用声望值可以到我这里领取荣誉勋章。\
+　徒弟[$出师等级]级将自动毕业出师。\ \
+　<离　开/@exit>
+
+[@助理小敏_我想拜师]
+#IF
+checkismaster
+#ACT
+MESSAGEBOX 你已经是别人的师父了，怎么还拜师？
+BREAK
+
+#IF
+checkmaster
+#ACT
+MESSAGEBOX 你已经拜了别人为师，怎么还拜师？
+BREAK
+
+#IF
+checkposemaster
+#ACT
+MESSAGEBOX 你找了个什么人做师父，怎么现在还是别人的徒弟？
+BREAK
+
+#IF
+POSEHAVEMASTER
+#ACT
+MESSAGEBOX 本服务器目前师父只允许收取一位徒弟！
+BREAK
+
+#IF
+not checkposedir
+#ACT
+MESSAGEBOX 你要拜谁为师啊？请让他在你对面站好！
+BREAK
+
+#IF
+CheckLevelEx ? [$拜师等级]
+#ACT
+MESSAGEBOX 你都[$拜师等级]多级了还要找师父啊？
+BREAK
+
+#IF
+checkposelevel ? [$师傅等级]
+#ACT
+MASTER
+#ELSEACT
+MESSAGEBOX 你找了个什么师父呀，等级这么低？
+
+[@助理小敏_我想拜师_确认拜师]
+#IF
+HAVEMASTER
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　你已经与别人建立了师徒关系，无法继续进行拜师仪式。\ \
+　<结束对话/@Exit>
+#ELSEACT
+MASTER REQUESTMASTER
+
+[@StartGetMaster]
+{<$SELFNAME>=FCO=251}：\
+　拜师仪式正式开始。\
+　你是否确认拜{<$POSENAME>=FCO=251}为师？\ \
+　<确　认/@助理小敏_我想拜师_确认拜师>\
+
+[@StartMaster]
+{<$SELFNAME>=FCO=251}：\
+　拜师仪式正式开始。\
+　请等待{<$POSENAME>=FCO=251}向你提出拜师。\ \
+
+[@WateMaster]
+{<$SELFNAME>=FCO=251}：\
+　你已经向对方发出拜师请求，请耐心等待对方的答复。\ \
+
+[@RevMaster]
+{<$SELFNAME>=FCO=251}：\
+　{<$POSENAME>=FCO=251}想拜你为师！\
+　你是否愿意收此人为徒？\ \
+　<我愿意/@助理小敏_我想拜师_确认拜师_愿意> \
+　<我不愿意/@助理小敏_我想拜师_确认拜师_不愿意>
+
+[@助理小敏_我想拜师_确认拜师_愿意]
+#if
+#act
+MASTER RESPONSEMASTER OK
+
+[@助理小敏_我想拜师_确认拜师_不愿意]
+#if
+#act
+MASTER RESPONSEMASTER FAIL
+
+[@EndMaster]
+{<$SELFNAME>=FCO=251}：\
+　恭喜二位，你们已经成功建立了师徒关系。\ \
+　<结束对话/@Exit>
+
+[@EndMasterFail]
+{<$SELFNAME>=FCO=251}：\
+　拜师仪式结束，很遗憾你们没有建立师徒关系。\ \
+　<结束对话/@Exit>
+
+[@MasterDirErr]
+{<$SELFNAME>=FCO=251}：\
+　对方没有站好位置，收徒无法继续进行。请下次再来。\ \
+　<结束对话/@Exit>
+
+[@MasterCheckDir]
+{<$SELFNAME>=FCO=251}：\
+　请站好位置，收徒无法继续进行。请下次再来。\ \
+　<结束对话/@Exit>
+
+[@HumanTypeErr]
+{<$SELFNAME>=FCO=251}：\
+　你对面站着的是人还是？我怎么看不见。你看见了吗？\ \
+　<结束对话/@Exit>
+
+[@解除师徒关系]
+#if
+havemaster
+#act
+unmaster
+#ELSEACT
+MESSAGEBOX 你都没有建立师徒关系，跑来做什么？
+
+[@ExeMasterFail]
+{<$SELFNAME>=FCO=251}：\
+　你都没有建立师徒关系，跑来做什么？\ \
+　<结束对话/@Exit>
+
+[@UnMasterCheckDir]
+{<$SELFNAME>=FCO=251}：\
+　解除师徒关系是俩个人的事，必需俩个人面对面站好位置，如果\
+对方人来不了，你只能选择强行解除了。不过强化解除师徒关系需\
+要交纳{100W金币=FCO=243}的手续费。\ \
+　<我要强行解除/@武馆教头_我想出师_强行出师>\
+　<返　回/@系统_标准NPC头_返回>\
+
+[@UnMasterTypeErr]
+{<$SELFNAME>=FCO=251}：\
+　你对面站着的是人还是？我怎么看不见。你看见了吗？\ \
+　<结束对话/@Exit>
+
+[@UnIsMaster]
+{<$SELFNAME>=FCO=251}：\
+　必需由徒弟发生请求！\ \
+　<结束对话/@Exit>
+
+[@UnMasterError]
+{<$SELFNAME>=FCO=251}：\
+　你们不是师徒关系！\ \
+　<结束对话/@Exit>
+
+[@StartUnMaster]
+{<$SELFNAME>=FCO=251}：\
+　出师仪式正在进行中！\
+　你是否确定要解除师徒关系？\ \
+　<确　定/@RequestUnMaster>\
+　<结束对话/@Exit>
+
+[@WateUnMaster]
+{<$SELFNAME>=FCO=251}：\
+　出师仪式正在进行中！\
+　请等待对方选择！\ \
+
+[@RevUnMaster]
+{<$SELFNAME>=FCO=251}：\
+　出师仪式正在进行中！\
+　对方已经确定要解除关系，你是否也确定要解除师徒关系？\ \
+　<确　定/@RequestUnMaster>\
+　<结束对话/@Exit>
+
+[@RequestUnMaster]
+#if
+havemaster
+#act
+unmaster REQUESTUNMASTER
+
+[@UnMasterEnd]
+{<$SELFNAME>=FCO=251}：\
+　你们已经成功解除了师徒关系了！\ \
+　<结束对话/@Exit>
+
+[@武馆教头_我想出师_强行出师]
+#IF
+CHECKGOLD 1000000
+havemaster
+#SAY
+$RESETLABEL
+{<$SELFNAME>=FCO=251}：\
+　请选择你要解除师徒关系的人物名称。\ \
+<$UNMASTER_FORCE> \ \
+　<返　回/@所有NPC调用头_返回>\
+#ELSEACT
+MESSAGEBOX 强行解除需要50W金币手续费，你的金币不足！
+
+[@UnMaster_Force]
+#IF
+CHECKGOLD 1000000
+havemaster
+#ACT
+TAKE 金币 1000000
+unmaster force <$STR(T0)>
+#ELSEACT
+MESSAGEBOX 强行解除需要100W金币手续费，你的金币不足！

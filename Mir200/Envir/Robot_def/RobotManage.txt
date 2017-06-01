@@ -1,0 +1,40 @@
+[@每5分钟运行一次]
+#IF
+CheckGameGold ? 10
+#ACT
+#ELSEACT
+Kick
+MESSAGEBOX 你的时间已经到，请明天再登录游戏！
+
+[@双倍经验]
+#ACT
+KillMonExpMultiple 2 999999
+
+[@屠龙活动]
+#IF
+CheckMapSameMonCount  B341 神龙 < 1 
+#ACT
+SetOnTimer 1 3
+Param1 B341
+Param2 26
+Param3 21
+MonGen 神龙 1 1
+SENDMSG 0 [系统]屠龙活动已经开启，神龙已经在封魔皇宫复活，每天只刷新一次，爆大量装备材料....
+SENDMSG 0 [系统]屠龙活动已经开启，神龙已经在封魔皇宫复活，每天只刷新一次，爆大量装备材料....
+#elseact
+SetOnTimer 1 3
+SENDMSG 0 [系统]屠龙活动已经开启，神龙已经在封魔皇宫复活，每天只刷新一次，爆大量装备材料....
+SENDMSG 0 [系统]屠龙活动已经开启，神龙已经在封魔皇宫复活，每天只刷新一次，爆大量装备材料....
+
+[@清除时间领取]
+#IF
+#ACT
+ClearList ../QuestDiary/数据/时间领取.txt
+
+
+[@凌晨清空]
+#IF
+#ACT
+CLEARLIST ../QuestDiary/功能调用/每日副本名单.txt
+SENDMSG 0 【#6FFFF/8#6公告#5】：今日#6FFFF/8#6副本任务#5可以重新挑战了
+SENDMSG 8 【#6FFFF/8#6公告#5】：今日#6FFFF/8#6副本任务#5可以重新挑战了

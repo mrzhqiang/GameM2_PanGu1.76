@@ -1,0 +1,435 @@
+[@MAIN]
+{<$SELFNAME>=FCO=251}：\
+我这里提供装备分解，分解赤月 光芒烈焰雷霆系列装备.....\
+光芒烈焰雷霆系列可分解出4个金刚石 赤月分解2个金刚石！ \
+有20%几率分解出天使之心!!\
+【<赤月系列>】\
+<一键分解圣战装备/@圣战>    <一键分解法神装备/@法神>     <一键分解天尊装备/@天尊>      \
+【<雷霆系列>】\
+<一键分解雷霆装备/@雷霆>    <一键分解烈焰装备/@烈焰>     <一键分解光芒装备/@光芒>      \
+
+[@圣战]
+#IF
+CHECKITEM 圣战头盔 1
+#ACT
+TAKE 圣战头盔 1
+give 金刚石 2
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“圣战头盔”
+goto @圣战
+goto @几率
+#IF
+CHECKITEM 圣战项链 1
+#ACT
+TAKE 圣战项链 1
+give 金刚石 2
+goto @圣战
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“圣战项链”
+#IF
+CHECKITEM 圣战手镯 1
+#ACT
+TAKE 圣战手镯 1
+give 金刚石 2
+goto @圣战
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“圣战手镯”
+#IF
+CHECKITEM 圣战戒指 1
+#ACT
+TAKE 圣战戒指 1
+give 金刚石 2
+goto @圣战
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“圣战戒指”
+#elseact
+Messagebox  请检查背包中还有可分解的装备？
+
+[@法神]
+#IF
+CHECKITEM 法神头盔 1
+#ACT
+TAKE 法神头盔 1
+give 金刚石 2
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“法神头盔”
+goto @法神
+#IF
+CHECKITEM 法神项链 1
+#ACT
+TAKE 法神项链 1
+give 金刚石 2
+goto @法神
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“法神项链”
+#IF
+CHECKITEM 法神手镯 1
+#ACT
+TAKE 法神手镯 1
+give 金刚石 2
+goto @法神
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“法神手镯”
+#IF
+CHECKITEM 法神戒指 1
+#ACT
+TAKE 法神戒指 1
+give 金刚石 2
+goto @法神
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“法神戒指”
+#elseact
+Messagebox  请检查背包中还有可分解的装备？
+
+[@天尊]
+#IF
+CHECKITEM 天尊头盔 1
+#ACT
+TAKE 天尊头盔 1
+give 金刚石 2
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“天尊头盔”
+goto @天尊
+#IF
+CHECKITEM 天尊项链 1
+#ACT
+TAKE 天尊项链 1
+give 金刚石 2
+goto @天尊
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“天尊项链”
+#IF
+CHECKITEM 天尊手镯 1
+#ACT
+TAKE 天尊手镯 1
+give 金刚石 2
+goto @天尊
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“天尊手镯”
+#IF
+CHECKITEM 天尊戒指 1
+#ACT
+TAKE 天尊戒指 1
+give 金刚石 2
+goto @天尊
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“天尊戒指”
+#elseact
+Messagebox  请检查背包中还有可分解的装备？
+
+[@雷霆]
+#IF
+CHECKITEM 雷霆头盔 1
+#ACT
+TAKE 雷霆头盔 1
+give 金刚石 4
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“雷霆头盔”
+goto @雷霆
+goto @几率
+#IF
+CHECKITEM 雷霆项链 1
+#ACT
+TAKE 雷霆项链 1
+give 金刚石 4
+goto @雷霆
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“雷霆项链”
+#IF
+CHECKITEM 雷霆护腕 1
+#ACT
+TAKE 雷霆护腕 1
+give 金刚石 4
+goto @雷霆
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“雷霆护腕”
+#IF
+CHECKITEM 雷霆战戒 1
+#ACT
+TAKE 雷霆战戒 1
+give 金刚石 4
+goto @雷霆
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“雷霆战戒”
+#IF
+CHECKITEM 雷霆战靴 1
+#ACT
+TAKE 雷霆战靴 1
+give 金刚石 4
+goto @雷霆
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“雷霆战靴”
+#IF
+CHECKITEM 雷霆腰带 1
+#ACT
+TAKE 雷霆腰带 1
+give 金刚石 4
+goto @雷霆
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“雷霆腰带”
+#elseact
+Messagebox  请检查背包中还有可分解的装备？
+
+[@烈焰]
+#IF
+CHECKITEM 烈焰头盔 1
+#ACT
+TAKE 烈焰头盔 1
+give 金刚石 4
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“烈焰头盔”
+goto @烈焰
+goto @几率
+#IF
+CHECKITEM 烈焰项链 1
+#ACT
+TAKE 烈焰项链 1
+give 金刚石 4
+goto @烈焰
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“烈焰项链”
+#IF
+CHECKITEM 烈焰护腕 1
+#ACT
+TAKE 烈焰护腕 1
+give 金刚石 4
+goto @烈焰
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“烈焰护腕”
+#IF
+CHECKITEM 烈焰魔戒 1
+#ACT
+TAKE 烈焰魔戒 1
+give 金刚石 4
+goto @烈焰
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“烈焰魔戒”
+#IF
+CHECKITEM 烈焰魔靴 1
+#ACT
+TAKE 烈焰魔靴 1
+give 金刚石 4
+goto @烈焰
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“烈焰魔靴”
+#IF
+CHECKITEM 烈焰腰带 1
+#ACT
+TAKE 烈焰腰带 1
+give 金刚石 4
+goto @烈焰
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“烈焰腰带”
+#elseact
+Messagebox  请检查背包中还有可分解的装备？
+
+[@光芒]
+#IF
+CHECKITEM 光芒头盔 1
+#ACT
+TAKE 光芒头盔 1
+give 金刚石 4
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“光芒头盔”
+goto @光芒
+goto @几率
+#IF
+CHECKITEM 光芒项链 1
+#ACT
+TAKE 光芒项链 1
+give 金刚石 4
+goto @光芒
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“光芒项链”
+#IF
+CHECKITEM 光芒护腕 1
+#ACT
+TAKE 光芒护腕 1
+give 金刚石 4
+goto @光芒
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“光芒护腕”
+#IF
+CHECKITEM 光芒道戒 1
+#ACT
+TAKE 光芒道戒 1
+give 金刚石 4
+goto @光芒
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“光芒道戒”
+#IF
+CHECKITEM 光芒道靴 1
+#ACT
+TAKE 光芒道靴 1
+give 金刚石 4
+goto @光芒
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“光芒道靴”
+#IF
+CHECKITEM 光芒腰带 1
+#ACT
+TAKE 光芒腰带 1
+give 金刚石 4
+goto @光芒
+goto @几率
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解“光芒腰带”
+#elseact
+Messagebox  请检查背包中还有可分解的装备？
+
+[@几率]
+#if
+random 30
+#act
+break
+
+#if
+random 29
+#act
+break
+
+#if
+random 28
+#act
+give 天使之心 1
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解获得“天使之心”
+break
+
+#if
+random 27
+#act
+break
+
+#if
+random 26
+#act
+break
+
+#if
+random 25
+#act
+break
+
+#if
+random 24
+#act
+break
+
+#if
+random 23
+#act
+break
+
+#if
+random 22
+#act
+break
+
+#if
+random 21
+#act
+give 天使之心 1
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解获得“天使之心”
+break
+
+#if
+random 20
+#act
+break
+
+#if
+random 19
+#act
+break
+
+#if
+random 18
+#act
+break
+
+#if
+random 17
+#act
+break
+
+#if
+random 16
+#act
+break
+
+
+#if
+random 15
+#act
+break
+
+#if
+random 14
+#act
+break
+
+#if
+random 13
+#act
+give 天使之心 1
+SENDMSG 7 【#6FFFF/8#6分解#5】：成功分解获得“天使之心”
+break
+
+#if
+random 12
+#act
+break
+
+#if
+random 11
+#act
+break
+
+#if
+random 10
+#act
+break
+
+#if
+random 9
+#act
+break
+
+#if
+random 8
+#act
+break
+
+#if
+random 7
+#act
+break
+
+#if
+random 6
+#act
+break
+
+#if
+random 5
+#act
+break
+
+#if
+random 4
+#act
+break
+
+#if
+random 3
+#act
+break
+
+#if
+random 2
+#act
+break
+
+#if
+random 1
+#act
+break
+
+#if
+#act
+break

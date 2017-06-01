@@ -1,0 +1,45 @@
+[@·âºÅ]
+{
+#if
+CheckLevel 45
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 340 1 0   0 45 0
+break
+#if
+CheckLevel 40
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 339 1 0   0 45 0
+break
+#if
+CheckLevel 35
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 341 1 0   0 45 0
+break
+#if
+CheckLevel 30
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 338 1 0   0 45 0
+break
+#if
+CheckLevel 20
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 337 1 0   0 45 0
+break
+#if
+CheckLevel 10
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 336 1 0   0 45 0
+break
+#if
+CheckLevel 2
+#act
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 335 1 0   0 45 0
+break
+}

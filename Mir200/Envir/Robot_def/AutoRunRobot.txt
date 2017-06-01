@@ -1,0 +1,6 @@
+#AutoRun NPC MIN 5 @每5分钟运行一次
+#AutoRun NPC RUNONDAY 19:00 @屠龙活动
+
+#AutoRun NPC MIN 1 @双倍经验
+#AutoRun NPC RUNONDAY 00:01 @清除时间领取
+#AutoRun NPC RUNONDAY 0:05  @凌晨清空

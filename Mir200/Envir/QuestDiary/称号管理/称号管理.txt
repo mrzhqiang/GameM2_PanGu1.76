@@ -1,0 +1,30 @@
+[@称号管理]
+
+{
+
+#if
+checknamelist ..\QuestDiary\称号管理\游戏管理.txt
+#act
+SETHUMICON 0 24 16560 1 10 0 37 2
+
+#if
+checknamelist ..\QuestDiary\称号管理\玛法首富.txt
+#act
+SETHUMICON 0 24 16561 1 10 0 37 2
+
+#if
+checknamelist ..\QuestDiary\称号管理\腰缠万贯.txt
+#act
+SETHUMICON 0 24 16562 1 10 0 37 2
+
+#if
+checknamelist ..\QuestDiary\称号管理\财大气粗.txt
+#act
+SETHUMICON 0 24 16563 1 10 0 37 2
+
+#if
+checknamelist ..\QuestDiary\称号管理\富可敌国.txt
+#act
+SETHUMICON 0 24 16564 1 10 0 37 2
+
+}

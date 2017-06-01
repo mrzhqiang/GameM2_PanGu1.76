@@ -1,0 +1,91 @@
+
+
+[@OnTimer1]
+#act
+goto @屠龙活动
+SetOffTimer 1
+SENDMSG 0 [系统]：]玩家[#7%s#7]进入[封魔堡]]去屠杀神龙了.........
+
+[@Login]
+#IF
+#ACT
+KillMonExpRate 200   999999
+DELAYGOTO 1 @新人登陆
+
+
+#CALLX [\登陆\禁止登陆.txt] @禁止登陆
+#CALLX [\登陆\沙城主.txt] @沙城主
+#CALLX [\登陆\公告设置.txt] @公告
+#CALLX [\登陆\封号.txt] @封号
+#CALLX [\登陆\经验.txt] @经验
+
+[@屠龙活动]
+游戏玩家：<$USERNAME>你好\
+<------------------------------------------------------------->\
+　　游戏因为活动而精彩，在我这里可以查询本游戏举行的所有活\
+动哦！不要错过 \
+【{屠龙活动=FCO=250}-----<已经开启！！！！！！！NEW  NEW NEW NWE>】\
+活动说明：每天晚上19:00在<封魔皇宫>举行屠龙活动，届时将刷出一\
+只神龙。杀死神龙即可有机会爆出、祖玛装备、金刚石、赤月等一\
+系列装备！\
+　　　　　　　　　　　　　　　　　<马上进入屠杀/@进入屠杀>　　<结束对话/@exit>
+
+[@进入屠杀]
+#if
+CheckLevelEx > 15
+#act
+mapmove B341
+SetOffTimer 1
+SENDMSG 0 [系统]：]玩家[#7%s#7]进入[封魔堡]]去屠杀神龙了.........
+#ELSEACT
+MESSAGEBOX 等级小于15级的新人无法参加
+SetOffTimer 1
+
+
+
+[@新人登陆]
+#IF
+ISNEWHUMAN
+#ACT
+#ELSEACT
+BREAK
+
+#IF
+GENDER MAN
+#ACT
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 335 1 0   0 45 0
+GIVE 升级大礼包 1
+DYNAMICGIVE 布衣(男) 1
+DYNAMICGIVE 木剑 1
+DYNAMICGIVE 金创药(小) 30
+DYNAMICGIVE 魔法药(小) 30
+CHANGEGIVEITEM 2 6 1
+CHANGEGIVEITEM 8
+SHOWEFFECT [$特效_烟花_一心一意]
+SHOWEFFECT [$特效_烟花_一心一意]
+SENDMSG 0 欢迎英俊潇洒的玩家[#7%s#7]进入[小传奇]。
+
+#ELSEACT
+SetHumIcon 0 0 0 0
+SetHumIcon 0 20 335 1 0   0 45 0
+GIVE 升级大礼包 1
+DYNAMICGIVE 布衣(女) 1
+DYNAMICGIVE 木剑 1
+DYNAMICGIVE 金创药(小) 30
+DYNAMICGIVE 魔法药(小) 30
+CHANGEGIVEITEM 2 6 1
+CHANGEGIVEITEM 8
+SHOWEFFECT [$特效_烟花_一心一意]
+SHOWEFFECT [$特效_烟花_一心一意]
+SENDMSG 0 欢迎英俊潇洒的玩家[#7%s#7]进入[小传奇]。
+
+
+[~Initialize]
+#IF
+EQUAL G101 11
+#ACT
+MOV G101  10
+#elseact
+MOV G101  1
+

@@ -1,0 +1,60 @@
+%100
++10
++11
++15
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　“虹魔教主”有时懒得杀你们，就让我把你们放走，\
+拿钱来，我把你们扔回去！\ \
+　<想瞬息移动/@move1> \
+　<想去商店/@talkwith> \
+　<关闭/@exit>
+
+[@talkwith]
+{<$SELFNAME>=FCO=251}：\
+　你想到哪个商店？这可是免费体验服务啊。\ \
+　<服装店/@fzmove>\
+　<武器店/@wqmove>\
+　<首饰店/@ssmove>\
+　<药书店/@ysmove>\
+　<返回/@main>
+
+[@move1]
+{<$SELFNAME>=FCO=251}：\
+　不要相信什么凌波微步，其实这个东西很简单，只要你付钱，\
+什么问题不能解决呢？\
+　来吧，小伙子这个世界充满危险，让我送你一程吧！\ \
+　<向比奇移动/@比奇> \
+　<返 回/@Main>
+
+[@fzmove]
+#IF
+#ACT
+map b345
+[@wqmove]
+#IF
+#ACT
+map b342
+[@ssmove]
+#IF
+#ACT
+map b344
+[@ysmove]
+#IF
+#ACT
+map b343
+
+[@比奇]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 0 331 264
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有2000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>

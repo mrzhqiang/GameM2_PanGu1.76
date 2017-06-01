@@ -1,0 +1,81 @@
+%100
++10
++11
++15
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　听说牛魔教主复活了！他的领地“苍月”也已重现大陆！\
+　不过那么邪恶的地方，你真的打算去吗？\
+<盟重士城/@免费_盟重士城> <比奇大城/@免费_比奇大城> <牛魔寺庙/@免费_牛魔寺庙>\\
+<骨魔洞/@免费_骨魔洞> <尸魔洞/@免费_尸魔洞>\\
+
+<关闭/@exit>
+
+
+[@免费_比奇大城]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 0 330 270
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有2000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+[@免费_盟重士城]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 3 333 333
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有2000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@免费_牛魔寺庙]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 5 658 463
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有2000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@免费_骨魔洞]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 5 545 131
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有2000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@免费_尸魔洞]
+#IF
+checkgold 2000
+#ACT
+take 金币 2000
+mapmove 5 522 615
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有2000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+
+

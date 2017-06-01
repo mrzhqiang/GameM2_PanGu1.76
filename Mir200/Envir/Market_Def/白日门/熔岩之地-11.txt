@@ -1,0 +1,71 @@
+[@main]
+勇士：能够来到这里证明你实力不一般！\
+但是要想进入<熔岩之地>那么不实力重要更要有勇气，以及达到我的条\
+件后凡客进入：【进入条件：】\
+------------------------------------------------------------\
+<要求等级45 战士：攻击130 法师：魔法100 道士：道术 110>\
+<&进入冒险/@进入> 限时2小时自动退出！\
+<&结束对话/@exit>\<说明:地图分为三次一层比一层危险。。。建议组队进入！！>
+
+[@进入]
+#if
+CheckLevelEx > 44
+#act
+goto @职业检测
+#elseact
+Messagebox 怎么，你等级没有达到45级了？
+
+[@职业检测]
+#IF
+CheckJob Warrior
+#ACT
+goto @战士
+Break
+
+#IF
+CheckJob Wizard
+#ACT
+goto @法师
+Break
+
+#IF
+CheckJob Taoist
+#ACT
+goto @道士
+Break
+
+[@战士]
+#IF
+CheckDC > 1 > 130
+#ACT
+mapmove  dyzd1 19 277
+TimeRecall 120
+give 回城卷 1
+Messagebox 提示： 2小时后自动退出地图！
+SendMsg 0 [公告]：游戏玩家#7<$USERNAME>#7进入熔岩之地.....祝他好运.....
+#elseact
+Messagebox  对不起，你的攻击没有达到130点！
+
+[@法师]
+#IF
+CheckMC > 1 > 100
+#ACT
+mapmove  dyzd1 19 277
+TimeRecall 120
+give 回城卷 1
+Messagebox 提示： 2小时后自动退出地图！
+SendMsg 0 [公告]：游戏玩家#7<$USERNAME>#7进入熔岩之地.....祝他好运.....
+#elseact
+Messagebox  对不起，你的魔法没有达到100点！
+
+[@道士]
+#IF
+CheckSC > 1 > 110
+#ACT
+mapmove  dyzd1 19 277
+TimeRecall 120
+give 回城卷 1
+Messagebox 提示： 2小时后自动退出地图！
+SendMsg 0 [公告]：游戏玩家#7<$USERNAME>#7进入熔岩之地.....祝他好运.....
+#elseact
+Messagebox  对不起，你的道士没有达到110点！

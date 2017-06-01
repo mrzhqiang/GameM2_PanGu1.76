@@ -1,0 +1,294 @@
+[@仓库脚本头]
+{
+(@storage @getback )
+%100
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　友情提示：强烈建议使用仓库加密功能，防盗人人有责！\
+　您好。我是仓库保管员。为了您的仓库又<方便>又<安全>。我为您提\
+供以下仓库务功能：\ \
+　<存取物品/@storage>　　<修改仓库密码/@Storagepass>　　<租用仓库/@仓库_租用仓库>　　<捆/@打捆物品>各种卷书和药水\ \
+　<关 闭/@exit>\
+
+[@仓库_租用仓库]
+{<$SELFNAME>=FCO=251}：\
+　您是不是觉得仓库容量不够用呢？我们现在推出{买一送一=FCO=251}活动，\
+只要您租用一个仓库，我们将再加送您一个仓库。\
+　{您当前额外仓库到期时间为=FCO=249}：\
+　仓库二：{<$STORAGE2STATE>=FCO=250}\
+　仓库三：{<$STORAGE3STATE>=FCO=250}\
+　<租用额外仓库/@仓库_租用仓库_租用>　　　价格：{[$租用仓库费用]=FCO=251}金币/{30=FCO=251}天 (可重复购买)\ \
+　<返 回/@MAIN>
+
+[@仓库_租用仓库_租用]
+#if
+CHECKGOLD [$租用仓库费用] 
+#act
+TAKE 金币 [$租用仓库费用]  
+STORAGETIMECHANGE 2 + [$租用仓库时间]
+STORAGETIMECHANGE 3 + [$租用仓库时间]
+MESSAGEBOX 恭喜您，成功的为额外仓库增加了[$租用仓库时间]天时间
+GOTO @仓库_租用仓库
+#elseact
+MESSAGEBOX 对不起，您的金币不够支付本次费用！
+
+[@仓库_金融业务]
+{<$SELFNAME>=FCO=251}：\
+　在这里我可以帮你将金币转换为金条，将金条转换为金砖，请问您\
+需要什么业务？\ \
+　100W金币 = 1根金条　　　　　　5根金条  = 1块金砖\ \
+　<对换金条/@仓库_金融业务_对换金条>　　<对换金砖/@仓库_金融业务_对换金砖> \ \
+　<返 回/@MAIN>\
+
+[@仓库_金融业务_对换金条]
+#if
+CHECKGOLD 1000000
+#act
+TAKE 金币 1000000
+GIVE 金条 1
+MESSAGEBOX 对换成功！
+#elseact
+MESSAGEBOX 对不起，您的金币不够啊！
+
+[@仓库_金融业务_对换金砖]
+#if
+CHECKITEMCOUNT 金条 ? 5
+#act
+TAKECOUNT 金条 5
+GIVE 金砖 1
+MESSAGEBOX 对换成功！
+#elseact
+MESSAGEBOX 对不起，您的金条不够啊！
+
+[@打捆物品]
+{<$SELFNAME>=FCO=251}：\
+　请选择你要打捆的物品类型：\ \
+　<捆/@捆金条>金条\
+　<捆/@捆药水>药水 \
+　<捆/@捆卷书>卷书 \ \
+　<返回上一页/@所有NPC调用头_返回>
+
+[@捆金条]
+{<$SELFNAME>=FCO=251}：\
+　你知道我是什么人吗？ \
+　我做的是这样的事情... \
+　你要试一下吗？有什么要拜托的就说吧 \ \
+　用<金币交换/@金币交换>金条 \
+　用<金条交换/@金条交换>金币 \ \
+　<返回上一页/@打捆物品>
+
+[@金币交换]
+{<$SELFNAME>=FCO=251}：\
+　你说你要用金币换成金条? \
+　好的，我帮你换 \
+　但是要支付手续费 \
+　费用是2000金币，你还换吗？ \ \
+　<交　换/@金币交换金条> \
+　<离　开/@exit>
+
+[@金币交换金条]
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX 你的背包空间不足！
+BREAK
+
+#IF
+CHECKGOLD 1002000
+#ACT
+TAKE 金币 1002000
+GIVE 金条 1
+SENDMSG 5 你花费1002000金币交换了一根金条。
+GOTO @捆金条
+#ELSEACT
+MESSAGEBOX 你的金币不足，交换金币需要1002000金币。
+
+
+[@金条交换]
+{<$SELFNAME>=FCO=251}：\
+　你说你要用金条换成金币? \
+　好的，我帮你换 \
+　但是要支付手续费 \
+　费用是2000金币，你还换吗？ \ \
+　<交　换/@金条交换金币> \
+　<离　开/@exit>
+
+[@金条交换金币]
+#IF
+CHECKGOLD 19000001
+#ACT
+MESSAGEBOX 我也想帮你换，但是你的钱太多了！
+BREAK
+
+#IF
+CHECKITEM 金条 1
+#ACT
+TAKE 金条 1
+GIVE 金币 998000
+SENDMSG 5 你用一根金条换取了998000金币。
+#ELSEACT
+MESSAGEBOX 你身上没有金条！
+
+[@捆药水]
+{<$SELFNAME>=FCO=251}：\
+　打捆药水需要支付100金币。\ \
+　<捆/@ch_bind1>强效金创药 \
+　<捆/@ma_bind1>强效魔法药 \
+　<捆/@ch_bind2>金创药(中量) \
+　<捆/@ma_bind2>魔法药(中量)\
+　<捆/@ch_bind3>金创药(小量)\
+　<捆/@ma_bind3>魔法药(小量)\ \
+　<返回上一页/@打捆物品>
+
+[@ch_bind1]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 强效金创药 ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 强效金创药 6
+GIVE 超级金创药 1
+SENDMSG 5 你用6个强效金创药捆成了一个超级金创药。
+GOTO @捆药水
+#ELSEACT
+MESSAGEBOX 强效金药不足6个或金币不足100！
+GOTO @捆药水
+
+[@ma_bind1]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 强效魔法药 ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 强效魔法药 6
+GIVE 超级魔法药 1
+SENDMSG 5 你用6个强效魔法药捆成了一个超级魔法药。
+GOTO @捆药水
+#ELSEACT
+MESSAGEBOX 强效魔法药不足6个或金币不足100！
+GOTO @捆药水
+
+[@ch_bind2]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 金创药(中量) ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 金创药(中量) 6
+GIVE 金创药(中)包 1
+SENDMSG 5 你用6个金创药(中量)捆成了一个金创药(中)包。
+GOTO @捆药水
+#ELSEACT
+MESSAGEBOX 金创药(中量)不足6个或金币不足100！
+GOTO @捆药水
+
+[@ma_bind2]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 魔法药(中量) ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 魔法药(中量) 6
+GIVE 魔法药(中)包 1
+SENDMSG 5 你用6个魔法药(中量)捆成了一个魔法药(中)包。
+GOTO @捆药水
+#ELSEACT
+MESSAGEBOX 魔法药(中量)不足6个或金币不足100！
+GOTO @捆药水
+
+[@ch_bind3]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 金创药(小量) ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 金创药(小量) 6
+GIVE 金创药(小)包 1
+SENDMSG 5 你用6个金创药(小量)捆成了一个金创药(小)包。
+GOTO @捆药水
+#ELSEACT
+MESSAGEBOX 金创药(小量)不足6个或金币不足100！
+GOTO @捆药水
+
+[@ma_bind3]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 魔法药(小量) ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 魔法药(小量) 6
+GIVE 魔法药(小)包 1
+SENDMSG 5 你用6个魔法药(小量)捆成了一个魔法药(小)包。
+GOTO @捆药水
+#ELSEACT
+MESSAGEBOX 魔法药(小量)不足6个或金币不足100！
+GOTO @捆药水
+
+[@捆卷书]
+{<$SELFNAME>=FCO=251}：\
+　打捆卷轴需要支付100金币。\ \
+　<捆/@zum_bind1>地牢逃脱卷 \
+　<捆/@zum_bind2>随机传送卷 \
+　<捆/@zum_bind3>回城卷 \
+　<捆/@zum_bind4>行会回城卷 \ \
+　<返回上一页/@打捆物品>
+
+[@zum_bind1]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 地牢逃脱卷 ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 地牢逃脱卷 6
+GIVE 地牢逃脱卷包 1
+SENDMSG 5 你用6个地牢逃脱卷捆成了一个地牢逃脱卷包。
+GOTO @捆卷书
+#ELSEACT
+MESSAGEBOX 地牢逃脱卷不足6个或金币不足100！
+GOTO @捆卷书
+
+[@zum_bind2]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 随机传送卷 ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 随机传送卷 6
+GIVE 随机传送卷包 1
+SENDMSG 5 你用6个随机传送卷捆成了一个随机传送卷包。
+GOTO @捆卷书
+#ELSEACT
+MESSAGEBOX 随机传送卷不足6个或金币不足100！
+GOTO @捆卷书
+
+[@zum_bind3]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 回城卷 ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 回城卷 6
+GIVE 回城卷包 1
+SENDMSG 5 你用6个回城卷捆成了一个回城卷包。
+GOTO @捆卷书
+#ELSEACT
+MESSAGEBOX 回城卷不足6个或金币不足100！
+GOTO @捆卷书
+
+[@zum_bind4]
+#IF
+CHECKGOLD 100
+CHECKITEMCOUNT 行会回城卷 ? 6
+#ACT
+TAKE 金币 100
+TAKECOUNT 行会回城卷 6
+GIVE 行会回城卷包 1
+SENDMSG 5 你用6个行会回城卷捆成了一个行会回城卷包。
+GOTO @捆卷书
+#ELSEACT
+MESSAGEBOX 行会回城卷不足6个或金币不足100！
+GOTO @捆卷书
+}

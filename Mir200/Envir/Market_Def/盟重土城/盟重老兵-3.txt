@@ -1,0 +1,312 @@
+%100
++10
++11
++15
+[@main]
+#CALLX [\游戏配置\所有NPC调用头.txt] @所有NPC调用头
+
+[@所有NPC调用头_返回]
+{<$SELFNAME>=FCO=251}：\
+　听说虹魔教主复活了！他的领地“封魔谷”也已重现大陆！\
+好象封魔谷的入口在沃玛森林附近\
+　不过那么邪恶的地方，你真的打算去吗？\
+　<坐标/@xy> 询问 　<去商店/@talkwith> \
+<比奇大城/@免费_比奇大城> <封魔城堡/@免费_封魔城堡> <白日天门/@免费_白日天门> <苍月海岛/@免费_苍月海岛>\
+<骷髅洞穴/@金币_骷髅洞穴> <兽人古墓/@金币_兽人古墓> <沃玛森林/@金币_沃玛森林> <比奇矿洞/@金币_比奇矿洞>\
+<蜈蚣洞穴/@金币_蜈蚣洞穴> <猪洞洞穴/@金币_猪洞洞穴> <祖码洞穴/@金币_祖码洞穴> \ 
+
+　<关闭/@exit>
+
+[@900zhaohuan]
+#IF
+#SAY
+{<$SELFNAME>=FCO=251}：\
+900勇士召唤殿为44级可以进入，\
+该地图60分钟刷新40只900勇士，\
+传送手续费为5W一次！\ \
+  <进入900勇士召唤殿/@jinruzhaohun>
+　<返 回/@Main>
+
+[@jinruzhaohun]
+#IF
+CHECKGOLD 50000
+CheckLevelEx ? 44
+#ACT
+TAKE 金币 50000
+MAPMOVE banshou
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有50000金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+
+[@shichang]
+#IF
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　交易市场是本服提供的唯一一个摆摊地图，\
+玩家在这个地图可以自由摆摊，支持离线摆摊！\
+维持游戏环境，你我有则！\ \
+  <进入交易市场/@jinrushichang>
+　<返 回/@Main>
+
+[@jinrushichang]
+#IF
+#act
+mapmove jiaoyi 18 35
+
+[@yidong]
+#if
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　不要相信什么凌波微步，其实这个东西很简单，只要你付钱，什\
+么问题不能解决呢？\
+　来吧，小伙子这个世界充满危险，让我送你一程吧！\ \
+　<向比奇省移动/@比奇> \
+　<返 回/@Main>
+
+[@xy]
+#if
+#SAY
+{<$SELFNAME>=FCO=251}：\
+　比奇最大的城市就是你所在的比奇城，坐标就不用我说了吧！毒\
+蛇山谷的小村很好找，你只要往500 500 的坐标走就能够到了。不\
+过，如果你要到盟重土城，就应该牢记300 300这个数字，他会指引\
+你走到那里。离流放地很近的沙巴克，是一个危险的区域，我记得\
+以前在600 300找到它的。不过我要提醒你，每个省份的坐标都是不\
+同的，可别在比奇找沙巴克哦！所以，要记住每个通往其他省的关\
+口。最后，要记得多跟朋友走走，你就会和我一样熟悉这个大陆。\ \
+　<返 回/@Main>
+
+[@talkwith]
+{<$SELFNAME>=FCO=251}：\
+　你要去哪个商店？这个是免费服务！ \ \
+　<铁匠铺/@Gwe>　　　<布料店/@Gpo>　　　<首饰店/@Gza>　　　<客栈/@Gwh>　　　<书店/@Gbo>\
+
+[@Gwe]
+#IF
+#ACT
+map 0159
+ 
+[@Gpo]
+#IF
+#ACT
+map 0149
+ 
+[@Gza]
+#IF
+#ACT
+map 0158
+ 
+[@Gwh]
+#IF
+#ACT
+map 0145
+ 
+[@Gbo]
+#IF
+#ACT
+map 0161
+
+
+
+
+[@免费_比奇大城]
+#IF
+checkgold 500
+#ACT
+take 金币 500
+mapmove 0 330 270
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@金币_骷髅洞穴]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE 0 45 112
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@金币_兽人古墓]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE 0 145 35
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@金币_沃玛森林]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE 1 88 282
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+[@金币_比奇矿洞]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE 0 661 217
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+[@金币_蜈蚣洞穴]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE 3 140 88
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+[@金币_猪洞洞穴]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE D710 28 19
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+[@金币_祖码洞穴]
+#IF
+CHECKGOLD 500
+#ACT
+TAKE 金币 500
+MAPMOVE 0157 17 18
+break
+#ELSESAY
+{<$SELFNAME>=FCO=251}：\
+　你没有500金币用来支付我们的服务费用！请努力赚钱哦:)\ \
+　<关闭对话/@exit>
+
+
+[@免费_白日天门]
+#IF
+#ACT
+MOV P6 [$白日门地图开放时间_年]
+MOV P0 [$白日门地图开放时间_月]
+MOV P1 [$白日门地图开放时间_日]
+MOV P2 [$白日门地图开放时间_时]
+DEC P2 1
+MUL P6 10
+MUL P0 10000
+MUL P1 100
+INC P0 <$STR(P1)>
+INC P0 <$STR(P2)>
+INC P0 <$STR(P6)>
+MOV P3 <$MONTH>
+MOV P4 <$DAY>
+MOV P5 <$HOUR>
+MOV P7 <$YEAR>
+MUL P7 10
+MUL P3 10000
+MUL P4 100
+INC P3 <$STR(P4)>
+INC P3 <$STR(P5)>
+INC P3 <$STR(P7)>
+
+#IF
+LARGE P3 <$STR(P0)>
+#ACT
+MAPMOVE 11 183 326
+#ELSEACT
+MESSAGEBOX 在[$白日门地图开放时间_年]年[$白日门地图开放时间_月]月[$白日门地图开放时间_日]日[$白日门地图开放时间_时]之前不允许进入\现在时间：<$DATETIME>
+
+
+
+[@免费_苍月海岛]
+#IF
+#ACT
+MOV P6 [$苍月地图开放时间_年]
+MOV P0 [$苍月地图开放时间_月]
+MOV P1 [$苍月地图开放时间_日]
+MOV P2 [$苍月地图开放时间_时]
+DEC P2 1
+MUL P6 10
+MUL P0 10000
+MUL P1 100
+INC P0 <$STR(P1)>
+INC P0 <$STR(P2)>
+INC P0 <$STR(P6)>
+MOV P3 <$MONTH>
+MOV P4 <$DAY>
+MOV P5 <$HOUR>
+MOV P7 <$YEAR>
+MUL P7 10
+MUL P3 10000
+MUL P4 100
+INC P3 <$STR(P4)>
+INC P3 <$STR(P5)>
+INC P3 <$STR(P7)>
+
+#IF
+LARGE P3 <$STR(P0)>
+#ACT
+MAPMOVE 5 141 335
+#ELSEACT
+MESSAGEBOX 在[$苍月地图开放时间_年]年[$苍月地图开放时间_月]月[$苍月地图开放时间_日]日[$苍月地图开放时间_时]之前不允许进入\现在时间：<$DATETIME> 
+
+[@免费_封魔城堡]
+#IF
+#ACT
+MOV P6 [$封魔谷地图开放时间_年]
+MOV P0 [$封魔谷地图开放时间_月]
+MOV P1 [$封魔谷地图开放时间_日]
+MOV P2 [$封魔谷地图开放时间_时]
+DEC P2 1
+MUL P6 10
+MUL P0 10000
+MUL P1 100
+INC P0 <$STR(P1)>
+INC P0 <$STR(P2)>
+INC P0 <$STR(P6)>
+MOV P3 <$MONTH>
+MOV P4 <$DAY>
+MOV P5 <$HOUR>
+MOV P7 <$YEAR>
+MUL P7 10
+MUL P3 10000
+MUL P4 100
+INC P3 <$STR(P4)>
+INC P3 <$STR(P5)>
+INC P3 <$STR(P7)>
+
+#IF
+LARGE P3 <$STR(P0)>
+#ACT
+MAPMOVE 4 240 196
+#ELSEACT
+MESSAGEBOX 在[$封魔谷地图开放时间_年]年[$封魔谷地图开放时间_月]月[$封魔谷地图开放时间_日]日[$封魔谷地图开放时间_时]之前不允许进入\现在时间：<$DATETIME>

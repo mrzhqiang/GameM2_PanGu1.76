@@ -1,0 +1,540 @@
+
+
+( @@sendmsg @storage @getback @buy @sell @repair @s_repair @@offlinemsg @getnextpage @getPreviouspage @@InPutString @@useitemname @@InputInteger)
+%100
+
+[@Member]
+#CALLX [\\游戏配置\帮助系统\目录.txt] @目录
+
+
+
+[@PlayDie]
+#IF
+CheckLevelEx > 0
+#ACT
+SENDMSG 0 【#6FFFF/8#6传闻#5】：江湖险恶，[#7<$USERNAME>#7]一不留神，被[#7<$STR(S0)>#7]放倒在地上。
+Break
+
+[@KillPlay]
+#IF
+CheckLevelEx > 0
+#ACT
+Break
+
+[@StdmodeFunc70]
+#if
+#act
+KILLMONEXPRATE 200 3600
+SENDMSG 0 [#7%s#7]获得了双倍经验1小时，下线时间照常计算！
+
+
+[@StdmodeFunc71]
+#if
+#act
+GAMEGOLD + 1
+SENDMSG 0 【#6FFFF/8#6传闻#5】：[#7%s#7]走在路上，被天外飞来的陨石砸到脑袋，获得金刚石一枚。
+
+
+[@StdmodeFunc72]
+#if
+#act
+ChangeTranPoint 强化雷电术 + 2000
+
+
+[@StdModeFunc5]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放一心一意烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_一心一意]
+
+[@StdModeFunc6]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放心心相印烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_心心相印]
+
+[@StdModeFunc7]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放飞火流星烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_飞火流星]
+
+[@StdModeFunc8]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放浪漫星雨烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_浪漫星雨]
+
+[@StdModeFunc9]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放绮梦幻想烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_绮梦幻想]
+
+[@StdModeFunc10]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放长空火舞烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_长空火舞]
+
+[@StdModeFunc11]
+#IF
+#ACT
+SENDMSG 0 [#7%s#7]正在%m(%x,%y)放如雾似梦烟花，大家快去看哦！
+SHOWEFFECT [$特效_烟花_如雾似梦]
+
+[@@InPutString9]
+#if
+#act
+OpenItemBox <$STR(S9)>
+Break
+
+[@@InPutString7]
+#if
+#act
+ChangeExp + <$STR(S7)>
+Break
+
+[@@InPutString6]
+#if
+#act
+ChangeTranPoint <$STR(S6)> + 1000
+Break
+
+[@StdModeFunc12]
+#IF
+EQUAL M3 0
+#ACT
+SENDMSG 0 %s在:%m%x:%y处放庆典蛋糕、大家快去欣赏哦。
+
+#IF
+EQUAL M3 5
+#ACT
+SENDMSG 0 %s在:%m%x:%y处放庆典蛋糕、大家快去欣赏哦。
+
+#IF
+EQUAL M3 10
+#ACT
+SENDMSG 0 %s在:%m%x:%y处放庆典蛋糕、大家快去欣赏哦。
+
+#IF
+EQUAL M3 15
+#ACT
+SENDMSG 0 %s在:%m%x:%y处放庆典蛋糕、大家快去欣赏哦。
+
+#IF
+small M3 20
+#Act
+INC M3 1
+SHOWEFFECT [$特效_烟花_一心一意]
+SHOWEFFECT [$特效_烟花_心心相印]
+SHOWEFFECT [$特效_烟花_飞火流星]
+SHOWEFFECT [$特效_烟花_浪漫星雨]
+SHOWEFFECT [$特效_烟花_绮梦幻想]
+SHOWEFFECT [$特效_烟花_长空火舞]
+SHOWEFFECT [$特效_烟花_如雾似梦]
+DelayGoto 2 @StdModeFunc12
+#ELSEAct
+MOV M3 0
+ClearDelayGoto
+
+[@StdModeFunc13]
+#ACT
+CREDITPOINT + 1
+SENDMSG 5 兑换成功！人物增加1点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc14]
+#ACT
+CREDITPOINT + 5
+SENDMSG 5 兑换成功！人物增加5点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc15]
+#ACT
+CREDITPOINT + 10
+SENDMSG 5 兑换成功！人物增加10点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc16]
+#ACT
+CREDITPOINT + 50
+SENDMSG 5 兑换成功！人物增加50点声望，当前声望为：<$CREDITPOINT>
+
+[@StdModeFunc17]
+#ACT
+CREDITPOINT + 100
+SENDMSG 5 兑换成功！人物增加100点声望，当前声望为：<$CREDITPOINT>
+
+#CALLX [\登陆\升级提示.txt] @升级提示
+
+[@StdmodeFunc40]
+#if
+#SAY
+<./@@InPutString9>
+
+[@StdModeFunc18]
+#IF
+#ACT
+mapmove 3 330 330
+
+[@StdModeFunc19]
+#IF
+#ACT
+mapmove 0 334 266
+
+[@StdModeFunc20]
+#IF
+#ACT
+mapmove 5 330 330
+
+[@StdModeFunc21]
+#IF
+#ACT
+mapmove 4 240 200
+
+[@StdModeFunc22]
+#IF
+#ACT
+mapmove 11 178 326
+
+[@StdModeFunc23] 
+#ACT
+GAMEGOLD + 1
+SENDMSG 5 元宝数量增加1个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc24]
+#ACT
+GAMEGOLD + 5
+SENDMSG 5 元宝数量增加5个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc25]
+#ACT
+GAMEGOLD + 10
+SENDMSG 5 元宝数量增加10个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc26]
+#ACT
+GAMEGOLD + 20
+SENDMSG 5 元宝数量增加20个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc27]
+#ACT
+GAMEGOLD + 50
+SENDMSG 5 元宝数量增加50个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc28]
+#ACT
+GAMEGOLD + 100
+SENDMSG 5 元宝数量增加100个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc29]
+#ACT
+GAMEGOLD + 200
+SENDMSG 5 元宝数量增加200个、目前元宝数:<$GAMEGOLD>个。
+
+[@StdModeFunc30]
+#if
+#SAY
+<./@@InPutString7>
+
+
+[@StdModeFunc31]
+#if
+#SAY
+<./@@InPutString6>
+
+[@STDMODEFUNC32]
+#IF
+NOT CHECKBAGSIZE 35
+#ACT
+goto @开启礼包_检测
+#ELSEACT
+GIVE 升级大礼包 1
+#ELSESAY
+<&{开启礼包，领取奖励=FCO=251}/@开启礼包_检测条件>\
+<&下次再领/@exit>\
+
+[@开启礼包_检测条件]
+#IF
+NOT CHECKBAGSIZE 10
+#ACT
+MESSAGEBOX 背包空间不足，请先清理出10个空位.
+Break
+
+#IF
+CheckLevelEx ? 10
+CHECK [778] 0
+#ACT
+set [778] 1
+DYNAMICGIVE 金创药(中) 30
+DYNAMICGIVE 魔法药(中) 30
+CHANGEGIVEITEM 2 0 1
+CHANGEGIVEITEM 2 4 1
+CHANGEGIVEITEM 2 6 1
+CHANGEGIVEITEM 2 7 1
+CHANGEGIVEITEM 8
+close
+MESSAGEBOX 恭喜您成功打开升级礼包，获得了奖励！您还有2次开启机会。\　\在15级、20级时可继续开启礼包，更有神秘装备大礼相送，一定要加油哦！
+Break
+
+#IF
+CheckLevelEx ? 15
+CHECK [778] 1
+CHECK [779] 0
+#ACT
+set [779] 1
+DYNAMICGIVE 随机传送卷 10
+DYNAMICGIVE 鹤嘴锄 1
+DYNAMICGIVE 金创药(中) 30
+DYNAMICGIVE 魔法药(中) 30
+CHANGEGIVEITEM 2 0 1
+CHANGEGIVEITEM 2 4 1
+CHANGEGIVEITEM 2 6 1
+CHANGEGIVEITEM 2 7 1
+CHANGEGIVEITEM 8
+close
+MESSAGEBOX 恭喜您成功打开升级礼包，获得了奖励！您还有1次开启机会。\　\在20级时可继续开启礼包，一定要继续加油哦！
+Break
+
+#IF
+CheckLevelEx ? 20
+CHECK [779] 1
+CHECK [780] 0
+#ACT
+set [780] 1
+DYNAMICGIVE 强效金创药 30
+DYNAMICGIVE 强效魔法药 30
+CHANGEGIVEITEM 2 0 1
+CHANGEGIVEITEM 2 4 1
+CHANGEGIVEITEM 2 6 1
+CHANGEGIVEITEM 2 7 1
+CHANGEGIVEITEM 8
+TAKE 升级大礼包 1
+close
+MESSAGEBOX 恭喜您成功打开升级礼包，获得了奖励！\　\　　　　您已领取完全部奖励，祝您游戏愉快！\
+Break
+
+#ELSESAY
+　礼包共可开启三次，您暂时未达到领奖\
+等级，无法领取下一阶段升级奖励：\ \
+　{--------------------------------=FCO=249}\
+　①、{10=FCO=250}级第{1=FCO=250}次开启\
+　②、{15=FCO=250}级第{2=FCO=250}次开启\
+　③、{20=FCO=250}级第{3=FCO=250}次开启\
+　{--------------------------------=FCO=249}\ \
+　请您一定要继续加油哦，祝您游戏愉快\ \
+<&好的/@exit>\
+
+[@开启礼包_检测]
+#IF
+;CheckItemCount 随机传送卷 ? 30
+#ACT
+;KILLMONEXPRATE 500 7200
+;ChangeMode 2 1
+;GIVE 升级大礼包 1
+;#ELSEACT 
+GIVE 升级大礼包 1
+goto @开启礼包_检测条件
+
+
+[@PlayLevelUpEx23]
+#IF
+#ACT
+SendEmail SELF 恭喜您已升至23级 尊敬的玩家，您好！#10恭喜您已升至23级，管理员特发礼包来祝贺 23级大礼包金币5W 50000 23
+SENDMSG 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(23)#5级，获得5W金币的奖励
+Break
+
+[@PlayLevelUpEx30]
+#IF
+#ACT
+SendEmail SELF 恭喜您已升至30级 尊敬的玩家，您好！#10恭喜您已升至30级，管理员特发礼包来祝贺 30级大礼包金币10W 100000 30
+SENDMSG 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(30)#5级，获得10W金币的奖励
+Break
+
+[@PlayLevelUpEx37]
+#IF
+#ACT
+SendEmail SELF 恭喜您已升至35级 尊敬的玩家，您好！#10恭喜您已升至37级，管理员特发礼包来祝贺 37级大礼包金币20W 200000 37
+SENDMSG 0 【#6FFFF/8#6恭喜#5】：玩家[#7<$USERNAME>#7]升到了#6FFFF/8#6(37)#5级，获得20W金币的奖励
+Break
+
+[@EMailItem23]
+#ACT
+SendMsg 5 你领取到了5W金币！
+Break
+
+[@EMailItem30]
+#ACT
+SendMsg 5 你领取到了10W金币！
+Break
+
+[@EMailItem37]
+#ACT
+SendMsg 5 你领取到了20W金币！
+Break
+
+
+
+[@清除]
+#ACT
+ChangeHumAbility 5 = 0
+ChangeHumAbility 6 = 0
+ChangeHumAbility 7 = 0
+ChangeHumAbility 8 = 0
+ChangeHumAbility 9 = 0
+ChangeHumAbility 10 = 0
+ClearSendCenterMsg 清除此提示
+Break
+
+
+
+
+
+[@StdmodeFunc122]
+;#if
+;CHECKNAMELIST ../QuestDiary/宝图/土城挖宝.txt
+;#act
+;goto @地图0
+;break
+#if
+CHECKNAMELIST ../QuestDiary/宝图/比奇挖宝.txt
+#act
+goto @地图1
+break
+#if
+CHECKNAMELIST ../QuestDiary/宝图/封魔谷挖宝.txt
+#act
+goto @地图2
+break
+#if
+#act
+mov C4 0
+mov C5 0
+goto @坐标
+break
+
+
+
+
+[@坐标]
+#if
+Random 2
+#act
+Movr C4 220
+Inc C4 100
+Movr C5 200
+Inc C5 140
+ADDNAMELIST ../QuestDiary/宝图/封魔谷挖宝.txt
+goto @地图2
+Break
+#if
+#act
+Movr C4 400
+Inc C4 100
+Movr C5 400
+Inc C5 110
+ADDNAMELIST ../QuestDiary/宝图/比奇挖宝.txt
+goto @地图1
+Break
+;#if
+;#act
+;Movr C4 600
+;Inc C4 100
+;Movr C5 300
+;Inc C5 200
+;ADDNAMELIST ../QuestDiary/宝图/土城挖宝.txt
+;goto @地图0
+;Break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;[@地图0]
+;#if
+;CheckInMapRange 3 <$STR(C4)> <$STR(C5)> 10
+;#act
+;CLEARLIST ../QuestDiary/宝图/土城挖宝.txt
+;GETRANDOMNAME ../QuestDiary/宝图/怪物.txt S2
+;MongenEx 3 <$X> <$Y> <$STR(S2)> 1 1
+;SENDMSG 0 【#6FFFF/8#6宝图#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6藏宝图#5在土城坐标(<$STR(C4)>.<$STR(C5)>)#6FFFF/8#6挖塌了怪物的房子放出了【<$STR(S2)>】！
+;#ELSEACT
+;give 藏宝图 1
+;goto @宝物0
+
+
+
+
+
+[@地图1]
+#if
+CheckInMapRange 0 <$STR(C4)> <$STR(C5)> 10
+#act
+CLEARLIST ../QuestDiary/宝图/比奇挖宝.txt
+GETRANDOMNAME ../QuestDiary/宝图/怪物.txt S2
+MongenEx 0 <$X> <$Y> <$STR(S2)> 1 1
+SENDMSG 0 【#6FFFF/8#6宝图#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6藏宝图#5在比奇坐标(<$STR(C4)>.<$STR(C5)>)#6FFFF/8#6挖塌了怪物的房子放出了【<$STR(S2)>】！
+#ELSEACT
+give 藏宝图 1
+goto @宝物1
+
+
+
+[@地图2]
+#if
+CheckInMapRange 4 <$STR(C4)> <$STR(C5)> 10
+#act
+CLEARLIST ../QuestDiary/宝图/封魔谷挖宝.txt
+GETRANDOMNAME ../QuestDiary/宝图/怪物.txt S2
+MongenEx 4 <$X> <$Y> <$STR(S2)> 1 1
+SENDMSG 0 【#6FFFF/8#6宝图#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6藏宝图#5在封魔谷坐标(<$STR(C4)>.<$STR(C5)>)#6FFFF/8#6挖塌了怪物的房子放出了【<$STR(S2)>】！
+#ELSEACT
+give 藏宝图 1
+goto @宝物2
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@宝物0]
+宝物所在地位：土城 <$STR(C4)> <$STR(C5)>\
+在坐标5格范围之内都可以释放藏宝图\
+请尽快赶到
+
+
+
+[@宝物1]
+宝物所在地位：比奇 <$STR(C4)> <$STR(C5)>\
+在坐标5格范围之内都可以释放藏宝图\
+请尽快赶到
+
+
+[@宝物2]
+宝物所在地位：封魔谷 <$STR(C4)> <$STR(C5)>\
+在坐标5格范围之内都可以释放藏宝图\
+请尽快赶到
+
+
+
+
+
+
+
+

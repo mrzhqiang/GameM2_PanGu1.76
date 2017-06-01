@@ -1,0 +1,69 @@
+[@火龙副本标准配置]
+{
+[@MAIN]
+#CALLX [\\NPC配置\所有NPC调用头内容.txt] @系统_所有NPC头内容
+
+[@系统_所有NPC头_返回]
+#CALLX [\\NPC配置\所有NPC调用头内容.txt] @系统_标准NPC头内容
+
+[@系统_标准NPC头_返回]
+　火龙副本是单人高级副本，现免费开放\
+20分钟内击杀BOSS即成功通关。\ \
+　--------------------------------\
+　{真正副本模式，副本中不能吃任何药品=FCO=250}\
+　{目前免费开放，为了提高难度，只允许=FCO=250}\
+　--------------------------------\ \
+<&进入副本{【需要金币[$祖玛副本_进入需要金币]】=FCO=251}/@祖玛副本_进入副本>\ \
+<&关闭/@exit>\
+[@祖玛副本_进入副本]
+#IF
+NOT CheckLevelEx 45
+#ACT
+MESSAGEBOX 进入该副本至少需要等级达到45级以上(包括45级)！
+BREAK
+
+#IF
+NOT CHECKGOLD [$祖玛副本_进入需要金币]
+#ACT
+MESSAGEBOX 进入副本需要金币[$祖玛副本_进入需要金币]，你的金币不够！
+BREAK
+
+#IF
+CANMOVEECTYPE 祖玛副本
+#ACT
+TAKE 金币 [$祖玛副本_进入需要金币]
+MOVEECTYPE 祖玛副本 78 81
+BREAK
+
+#IF
+NOT ISGROUPMASTER
+#ACT
+MESSAGEBOX 只有队长才能创建副本地图！
+BREAK
+
+#IF
+CHECKGROUPJOBCOUNT 0 ? 1 ? 45
+CHECKGROUPJOBCOUNT 1 ? 1 ? 45
+CHECKGROUPJOBCOUNT 2 ? 1 ? 45
+#ACT
+CREATEECTYPE 祖玛副本 40
+#ELSEACT
+MESSAGEBOX 创建祖玛副本必需组队，且每种职业都必需有一员，等级必需达到45级或以上！
+
+;副本创建成功
+[@CreateEctype_OK]
+#if
+#act
+CLEARMACHINERYEVENT FBMAP
+CLEARECTYPEMON FBMAP 
+TAKE 金币 [$祖玛副本_进入需要金币]
+MOVEECTYPE 祖玛副本 78 81
+
+;副本创建失败
+[@CreateEctype_Fail]
+#IF
+#ACT
+MESSAGEBOX 创建副本失败，副本人数已满，请稍候再试！
+
+}
+

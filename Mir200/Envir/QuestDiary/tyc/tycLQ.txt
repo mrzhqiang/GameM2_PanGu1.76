@@ -1,0 +1,148 @@
+[@领取元宝]
+{
+#IF
+#ACT
+mov p0 0
+mov p1 0
+mov p2 0
+#ELSEACT
+mov p0 0
+mov p1 0
+mov p2 0
+#IF
+CheckAccountList ..\QuestDiary\tyc\c1y.txt
+#ACT
+inc p0 70000
+give 金币 70000
+DelAccountList ..\QuestDiary\tyc\c1y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s1y.txt
+#ACT
+inc p0 70000
+give 金币 70000
+DelAccountList ..\QuestDiary\tyc\s1y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c2y.txt
+#ACT
+inc p0 140000
+give 金币 140000
+DelAccountList ..\QuestDiary\tyc\c2y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s2y.txt
+#ACT
+inc p0 140000
+give 金币 140000
+DelAccountList ..\QuestDiary\tyc\s2y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c3y.txt
+#ACT
+inc p0 210000
+give 金币 210000
+DelAccountList ..\QuestDiary\tyc\c3y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s3y.txt
+#ACT
+inc p0 210000
+give 金币 210000
+DelAccountList ..\QuestDiary\tyc\s3y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c5y.txt
+#ACT
+inc p0 350000
+give 金币 350000
+DelAccountList ..\QuestDiary\tyc\c5y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s5y.txt
+#ACT
+inc p0 350000
+give 金币 350000
+DelAccountList ..\QuestDiary\tyc\s5y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c10y.txt
+#ACT
+inc p0 700000
+give 金币 700000
+DelAccountList ..\QuestDiary\tyc\c10y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s10y.txt
+#ACT
+inc p0 700000
+give 金币 700000
+DelAccountList ..\QuestDiary\tyc\s10y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c20y.txt
+#ACT
+inc p0 1400000
+give 金币 1400000
+DelAccountList ..\QuestDiary\tyc\c20y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s20y.txt
+#ACT
+inc p0 1400000
+give 金币 1400000
+DelAccountList ..\QuestDiary\tyc\s20y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c50y.txt
+#ACT
+inc p0 3500000
+give 金币 3500000
+DelAccountList ..\QuestDiary\tyc\c50y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s50y.txt
+#ACT
+inc p0 3500000
+give 金币 3500000
+DelAccountList ..\QuestDiary\tyc\s50y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\c100y.txt
+#ACT
+inc p0 7000000
+give 金币 7000000
+DelAccountList ..\QuestDiary\tyc\c100y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\s100y.txt
+#ACT
+inc p0 7000000
+give 金币 7000000
+DelAccountList ..\QuestDiary\tyc\s100y.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\m1.txt
+#ACT
+SENDMSG 1 ★恭喜玩家[%s]充值满500.0000元，获得额外赠送。
+give 金币 7000000
+DelAccountList ..\QuestDiary\tyc\m1.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\m2.txt
+#ACT
+SENDMSG 1 ★恭喜玩家[%s]充值满1000.0000元，获得额外赠送。
+give 金币 14000000
+DelAccountList ..\QuestDiary\tyc\m2.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\m3.txt
+#ACT
+SENDMSG 1 ★恭喜玩家[%s]充值满2000.0000元，获得额外赠送。
+give 金币 21000000
+DelAccountList ..\QuestDiary\tyc\m3.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\m4.txt
+#ACT
+SENDMSG 1 ★恭喜玩家[%s]充值满元，获得额外赠送。
+DelAccountList ..\QuestDiary\tyc\m4.txt
+#IF
+CheckAccountList ..\QuestDiary\tyc\m5.txt
+#ACT
+SENDMSG 1 ★恭喜玩家[%s]充值满元，获得额外赠送。
+DelAccountList ..\QuestDiary\tyc\m5.txt
+#IF
+large p0 0
+#ACT
+SENDMSG 1 ★恭喜玩家[%s]使用自动冲值系统，购买金币<$str(p0)>。
+#IF
+large p1 0
+#ACT
+SENDMSG 1 ★获得积分<$str(p1)>个。
+#IF
+large p2 0
+#ACT
+SENDMSG 1 ★获得金刚石<$str(p2)>。
+}

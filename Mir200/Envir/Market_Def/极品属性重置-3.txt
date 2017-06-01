@@ -1,0 +1,135 @@
+[@main]
+　{复古传奇 高品质2.5D网游=FCO=249}\
+　--------------------------------\
+  {【盛世传奇装备清洗指南】 =FCO=246}\
+  {【清洗单件装备属性价格】=FCO=246}：{金币200W一件装备=FCO=149} {任何装备都可以清洗 洗出来的属性全部随机出现。 =FCO=250}\ 
+　--------------------------------\ 
+  {【清洗技巧】：难度★☆☆=FCO=246} {建议清洗高阶级装备！出极品的几率很高哦！玩的出技巧 玩的出人品=FCO=250}\
+
+　--------------------------------\
+#ACT
+Mov N10 2000000
+#SAY
+<&【衣服】属性重洗/@衣服>   {『<$DRESS>』=FCO=254}  {将要清洗的装备配到上=FCO=149}\
+<&【武器】属性重洗/@武器>   {『<$WEAPON>』=FCO=254}  {点击就立即清洗了。不要点错哦=FCO=149}\
+<&【项链】属性重洗/@项链>  {『<$NECKLACE>』=FCO=254}  {清洗一件装备200W=FCO=149}\
+<&【头盔】属性重洗/@头盔>   {『<$HELMET>』=FCO=254}  {将要清洗的装备配到上=FCO=149}\
+<&【右手镯】属性重洗/@右手镯> {『<$ARMRING_R>』=FCO=254}  {要分清左右哦！分不清就带一个手镯=FCO=149}\
+<&【左手镯】属性重洗/@左手镯> {『<$ARMRING_L>』=FCO=254}  {建议清洗高阶级装备！=FCO=149}\
+<&【右戒指】属性重洗/@右戒指> {『<$RING_R>』=FCO=254}  {清洗玩的是人品！=FCO=149}\
+<&【左戒指】属性重洗/@左戒指> {『<$RING_L>』=FCO=254}  {要分清左右哦！分不清就一个戒指=FCO=149}\
+
+
+[@头盔]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 2
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(0)>
+TakeOffItem 2 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+
+
+[@衣服]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 0
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(0)>
+TakeOffItem 0 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+
+
+[@武器]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 1
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(1)>
+TakeOffItem 1 1  
+RefreshValue <$STR(S10)>
+goto @main 
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+
+
+[@项链]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 3
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(3)>
+TakeOffItem 3 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+
+
+[@左手镯]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 5
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(5)>
+TakeOffItem 5 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+[@右手镯]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 6
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(6)>
+TakeOffItem 6 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+[@左戒指]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 7
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(7)>
+TakeOffItem 7 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
+
+
+
+[@右戒指]
+#IF
+CheckGold <$STR(N10)>
+CheckUseItem 8
+#ACT
+take 金币 <$STR(N10)>
+Mov S10 <$IDX(8)>
+TakeOffItem 8 1  
+RefreshValue <$STR(S10)> 
+goto @main
+SENDMSG 0 【#6FFFF/8#6洗冤露#5】：玩家[#7<$USERNAME>#7]使用#6FFFF/8#6洗冤录#5在土城NPC(<洗冤录)#6FFFF/8#6洗出了极品装备【大家恭喜】！
+Break
